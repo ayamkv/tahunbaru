@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+             <meta name="viewport" content="width=device-width, initial-scale=1">
+             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+ 		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/particle-api-js/9.0.0/particle.min.js"></script>
+             <link rel="import" type="text/js" href="particlejs.json" />
+				<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <link rel="stylesheet" type="text/css" href="dist/style.css">
+
+       
+   
+   </head>
+   <body>
+    <div id="particles-js"></div>
+     <div class="content">
+         <div class="header" id="header">
+                <h1 class="year">2021</h1>
+                   <h1 class="yea">&nbsp New Year Countdown &nbsp</h1>
+         </div>
+                   <br><br>
+   
+    			 <a id="show-toggle" class="show"> Show </a>
+    			
+   				 <div id="menu" class="menu">
+
+   				  
+   			
+   				 <h2 class="cd" id="cd"></h2>
+    	 </div>
+   </body>
+   <footer>
+       <br><br>
+    <a onclick="myFunction()" id="dm">Dark Mode</a>
+        <p>@ayamkv</p>
+   </footer>
+   <script>
+$(document).ready(function () { $('body').hide().fadeIn(1500).delay(6000)});
+
+//button h&show
+//jquery
+
+$(document).ready(function() {
+				$("#show-toggle").click(function() {
+								$("#menu").fadeToggle();
+                                $("#header").animate({
+            height: "toggle",
+            opacity: "toggle",
+            
+        });
+								});
+								
+				$("#show-toggle").click(function() {			  
+			 if ($.trim($(this).text()) === 'Show') {
+   				 $(this).text('Hide');
+												} 
+				else {
+   				 $(this).text('Show');        
+}
+            });					
+            $("#dm").click(function() {			  
+			 if ($.trim($(this).text()) === 'Dark Mode') {
+   				 $(this).text('Light Mode');
+												} 
+				else {
+   				 $(this).text('Dark Mode');        
+}
+			});					
+});
+//dark mode
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+
+//COUNTDOWN
+// js
+//stackoverflow
+
+timedown("January 1, 2021 00:00:00",'cd');
+function timedown(ti,id){
+// Set the date we're counting down to
+var countDownDate = new Date(ti).getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="cd"
+    document.getElementById(id).innerHTML = (days!=0 ? days + " Hari " : '') + (hours!= 0 ? hours + " Jam " : '')
+    + (minutes != 0 ? minutes + " Menit " : '') + seconds + " Detik ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById(id).innerHTML = "Happy New Year!";
+    }
+}, 1000);
+}
+
+    </script>
+</html>
