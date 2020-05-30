@@ -6,15 +6,16 @@
 <meta name="HandheldFriendly" content="true">
  		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
              <script src="https://cdnjs.cloudflare.com/ajax/libs/particle-api-js/9.0.0/particle.min.js"></script>
-             <link rel="import" type="text/js" href="particlejs.json" />
+             
 				<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
        <link rel="stylesheet" type="text/css" href="dist/style.css">
-
-       
+       <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+     
    
    </head>
    <body>
+    
     <div id="particles-js"></div>
      <div class="content">
          <div class="header" id="header">
@@ -34,12 +35,22 @@
    </body>
    <footer>
        <br><br>
-    <a onclick="myFunction()" id="dm">Dark Mode</a>
+    
         <p>@ayamkv</p>
    </footer>
+   
    <script>
-$(document).ready(function () { $('body').hide().fadeIn(1500).delay(6000)});
 
+       //particle
+       particlesJS.load('particles-js', 'particles.json', function(){
+      console.log('particles.json loaded...');
+    });
+  
+
+       $(document).ready(function () { $('body').hide().fadeIn(1500).delay(6000)});
+
+
+ 
 //button h&show
 //jquery
 
@@ -61,14 +72,8 @@ $(document).ready(function() {
    				 $(this).text('Show');        
 }
             });					
-            $("#dm").click(function() {			  
-			 if ($.trim($(this).text()) === 'Dark Mode') {
-   				 $(this).text('Light Mode');
-												} 
-				else {
-   				 $(this).text('Dark Mode');        
-}
-			});					
+     
+							
 });
 //dark mode
 function myFunction() {
@@ -113,4 +118,24 @@ var x = setInterval(function() {
 }
 
     </script>
+   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+   <script>
+    var options = {
+  bottom: '64px', // default: '32px'
+  right: 'unset', // default: '32px'
+  left: '32px', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: false, // default: true,
+  label: '🌙', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+   </script>
+    </body>
 </html>
