@@ -44,6 +44,9 @@
        //particle
        particlesJS.load('particles-js', 'particles.json', function(){
       console.log('particles.json loaded...');
+      let el = document.querySelector(".particles-js-canvas-el"); 
+      
+      el.setAttribute("width", "720");
     });
   
 

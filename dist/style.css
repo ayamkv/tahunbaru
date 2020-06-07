@@ -96,12 +96,10 @@ a, .cd, br, .year {
 }
 
 .particle-js {
-   background: transparent;
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
    height: 100%;
+   position: fixed;
+   
+   
    z-index: -1;
 }
 .darkmode-layer, .darkmode-toggle {
