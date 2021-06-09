@@ -1,144 +1,134 @@
 <!DOCTYPE html>
- <html>
-  <head>
-             <meta name="viewport" content="width=device-width, initial-scale=1">
-             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="HandheldFriendly" content="true">
- 		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-             <script src="https://cdnjs.cloudflare.com/ajax/libs/particle-api-js/9.0.0/particle.min.js"></script>
-             
-				<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-       <link rel="stylesheet" type="text/css" href="dist/style.css">
-       <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-     
-   
-   </head>
-   <body>
-    
-    <div id="particles-js"></div>
-     <div class="content">
-         <div class="header" id="header">
-                <h1 class="year">2022</h1>
-                   <h1 class="yea">&nbsp New Year Countdown &nbsp</h1>
-         </div>
-                   <br><br>
-   
-    			 <a id="show-toggle" class="show"> Show </a>
-    			
-   				 <div id="menu" class="menu">
-
-   				  
-   			
-   				 <h2 class="cd" id="cd"></h2>
-    	 </div>
-   </body>
-   <footer>
-       
-    
-        <p>@freqtion</p>
-   </footer>
-   
-   <script>
-
-       //particle
-       particlesJS.load('particles-js', 'particles.json', function(){
-      console.log('particles.json loaded...');
-      let el = document.querySelector(".particles-js-canvas-el"); 
-      
-      el.setAttribute("width", "920", "height", "1080");
-    });
-  
-
-       $(document).ready(function () { $('body').hide().fadeIn(1500).delay(6000)});
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particle-api-js/9.0.0/particle.min.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="dist/style.css">
+        <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 
- 
-//button h&show
-//jquery
+    </head>
+    <body>
 
-$(document).ready(function() {
-				$("#show-toggle").click(function() {
-								$("#menu").fadeToggle();
-                                $("#header").animate({
-            height: "toggle",
-            opacity: "toggle",
+        <div id="particles-js">
             
-        });
-								});
-								
-				$("#show-toggle").click(function() {			  
-			 if ($.trim($(this).text()) === 'Show') {
-   				 $(this).text('Hide');
-												} 
-				else {
-   				 $(this).text('Show');        
-}
-            });					
-     
-							
-});
-//dark mode
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
+        </div>
+        <div class="content">
+            <div class="header" id="header">
+                <h1 class="year">2022</h1>
+                <h1 class="yea">&nbsp New Year Countdown &nbsp</h1>
+            </div>
+            <br><br>
 
-//COUNTDOWN
-// js
-//stackoverflow
+            <a id="show-toggle" class="show">
+                Show
+            </a>
+            <div id="menu" class="menu">
+                <h2 class="cd" id="cd"></h2>
+            </div>
+        </body>
+        <footer>
 
-timedown("January 1, 2022 00:00:00",'cd');
-function timedown(ti,id){
-// Set the date we're counting down to
-var countDownDate = new Date(ti).getTime();
+            <p>@freqtion</p>
+        </footer>
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+        <script>
 
-    // Get todays date and time
-    var now = new Date().getTime();
-    
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-    
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Output the result in an element with id="cd"
-    document.getElementById(id).innerHTML = (days!=0 ? days + " Hari " : '') + (hours!= 0 ? hours + " Jam " : '')
-    + (minutes != 0 ? minutes + " Menit " : '') + seconds + " Detik ";
-    
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById(id).innerHTML = "Happy New Year! :D";
-    }
-}, 1000);
-}
+            // particle
+            particlesJS.load('particles-js', 'particles.json', function () {
+                console.log('particles.json loaded...');
+                let el = document.querySelector(".particles-js-canvas-el");
 
-    </script>
-   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
-   <script>
-    var options = {
-  bottom: '64px', // default: '32px'
-  right: 'unset', // default: '32px'
-  left: '32px', // default: 'unset'
-  time: '0.5s', // default: '0.3s'
-  mixColor: '#fff', // default: '#fff'
-  backgroundColor: '#fff',  // default: '#fff'
-  buttonColorDark: '#100f2c',  // default: '#100f2c'
-  buttonColorLight: '#fff', // default: '#fff'
-  saveInCookies: false, // default: true,
-  label: '🌓', // default: ''
-  autoMatchOsTheme: true // default: true
-}
+                el.setAttribute("width", "920", "height", "1080");
+            });
 
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
-   </script>
+
+            $(document).ready(function () {
+                $('body').hide().fadeIn(1500).delay(6000)
+            });
+
+
+            // button h&show
+            // jquery
+
+            $(document).ready(function () {
+                $("#show-toggle").click(function () {
+                    $("#menu").fadeToggle();
+                    $("#header").animate({height: "toggle", opacity: "toggle"});
+                });
+
+                $("#show-toggle").click(function () {
+                    if ($.trim($(this).text()) === 'Show') {
+                        $(this).text('Hide');
+                    } else {
+                        $(this).text('Show');
+                    }
+                });
+
+
+            });
+            // dark mode
+            function myFunction() {
+                var element = document.body;
+                element.classList.toggle("dark-mode");
+            }
+
+            // COUNTDOWN
+            // js
+            // stackoverflow
+
+            timedown("January 1, 2022 00:00:00", 'cd');
+            function timedown(ti, id) { // Set the date we're counting down to
+                var countDownDate = new Date(ti).getTime();
+
+                // Update the count down every 1 second
+                var x = setInterval(function () { // Get todays date and time
+                    var now = new Date().getTime();
+
+                    // Find the distance between now an the count down date
+                    var distance = countDownDate - now;
+
+                    // Time calculations for days, hours, minutes and seconds
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    // Output the result in an element with id="cd"
+                    document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + seconds + " Detik ";
+
+                    // If the count down is over, write some text
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById(id).innerHTML = "Happy New Year! :D";
+                    }
+                }, 1000);
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+        <script>
+            var options = {
+                bottom: '64px', // default: '32px'
+                right: 'unset', // default: '32px'
+                left: '32px', // default: 'unset'
+                time: '0.5s', // default: '0.3s'
+                mixColor: '#fff', // default: '#fff'
+                backgroundColor: '#fff', // default: '#fff'
+                buttonColorDark: '#100f2c', // default: '#100f2c'
+                buttonColorLight: '#fff', // default: '#fff'
+                saveInCookies: false, // default: true,
+                label: '🌓', // default: ''
+                autoMatchOsTheme: true // default: true
+            }
+
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        </script>
     </body>
 </html>

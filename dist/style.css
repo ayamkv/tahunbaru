@@ -13,9 +13,11 @@ body {
                         }
     .menu {
     				display: none;
+                
     				}
    .hide {
    				display: none;
+               transition: 250ms ease-in-out;
    				}
    		a {
    						text-decoration: none;
@@ -83,7 +85,7 @@ a, .cd, br, .year {
                                     supported by Chrome, Edge, Opera and Firefox */
   }
   .dark-mode {
-   
+      
         background: black;
         filter: invert(1); /* This will flip the contents on the page, from black to its inverted color*/
  }
@@ -93,15 +95,21 @@ a, .cd, br, .year {
     .content {
       font-size: 20px;
     }
+    .particle-js {
+      height: 1280px;
+      position: fixed;
+      z-index: -1;
+   }
 }
 
 .particle-js {
    height: 100%;
    position: fixed;
-   
-   
    z-index: -1;
 }
 .darkmode-layer, .darkmode-toggle {
    z-index: 500;
  }
+ .particle-canvas{
+   height: 100vh !important;
+   }
