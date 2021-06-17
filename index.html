@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="google-site-verification" content="2f8NCUVhbGT1QVm_6Lx_LD01Kea7nUJb9V9iqeBBqRU" />
+        <meta name="google-site-verification" content="2f8NCUVhbGT1QVm_6Lx_LD01Kea7nUJb9V9iqeBBqRU"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandheldFriendly" content="true">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/particle-api-js/9.0.0/particle.min.js"></script>
-        
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/feather-icons"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="dist/style.css">
         <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 
     </head>
     <body>
 
-        <div id="particles-js">
-            
-        </div>
+        <div id="particles-js"></div>
         <div class="content">
             <div class="header" id="header">
                 <h1 class="year">2022</h1>
@@ -36,10 +34,12 @@
         </body>
         <footer>
 
-            <p>@freqtion</p>
+            <a href="http://instagram.com/freqtion" class='ig-footer'>@freqtion</a>
         </footer>
 
         <script>
+            // icons
+            feather.replace();
 
             // particle
             particlesJS.load('particles-js', 'particles.json', function () {
@@ -51,7 +51,7 @@
 
 
             $(document).ready(function () {
-                $('body').hide().fadeIn(1500).delay(6000)
+                $('body').hide().fadeIn(900).delay(200)
             });
 
 
@@ -112,24 +112,17 @@
                 }, 1000);
             }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
         <script>
-            var options = {
-                bottom: '64px', // default: '32px'
-                right: 'unset', // default: '32px'
-                left: '32px', // default: 'unset'
-                time: '0.5s', // default: '0.3s'
-                mixColor: '#fff', // default: '#fff'
-                backgroundColor: '#fff', // default: '#fff'
-                buttonColorDark: '#100f2c', // default: '#100f2c'
-                buttonColorLight: '#fff', // default: '#fff'
-                saveInCookies: false, // default: true,
-                label: '🌓', // default: ''
-                autoMatchOsTheme: true // default: true
+            let options = {
+                saveInCookies: true, // default: true,
+                autoMatchOsTheme: true, // default: true
             }
-
-            const darkmode = new Darkmode(options);
-            darkmode.showWidget();
+            function addDarkmodeWidget() {
+                new Darkmode(options).showWidget();
+            }
+            window.addEventListener('load', addDarkmodeWidget);
+            console.log('darkmode loaded')
         </script>
     </body>
-</html>
+</html></script></body></html>
