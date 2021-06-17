@@ -71,11 +71,11 @@ footer {
 }
 .cd {
    font-size: 3em;
-   top: 20%;
+   top: 10%;
 }
 
 
-a, .cd, br, .year {
+a{
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
@@ -128,3 +128,6 @@ a.ig-footer:hover {
    border: 1px solid black;
    transition: 140ms ease;
    }
+p.watermark {
+   opacity: 35%;
+}
