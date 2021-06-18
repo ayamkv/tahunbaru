@@ -12,7 +12,7 @@
         <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 
     </head>
     <body>
@@ -21,7 +21,7 @@
         <div class="content">
             <div class="header" id="header">
                 <h1 class="year">2022</h1>
-                <h1 class="yea">&nbsp New Year Countdown &nbsp</h1>
+                <h1 class="yea" id="subtitle">&nbsp New Year Countdown &nbsp</h1>
             </div>
             <a id="show-toggle" class="show">
                 Show
@@ -34,7 +34,7 @@
                 <p class="watermark">tahunbaru.netlify.app</p>
                 <br>
             </div>
-
+            <p id="horay"></p>
         </body>
         <footer>
 
@@ -43,6 +43,11 @@
 
         <script>
             // icons
+            
+            confetti({
+                 spread: 50,
+                 particleCount: 50,
+            });
             feather.replace();
 
             // particle
@@ -80,30 +85,33 @@
             });
             // dark mode
             function myFunction() {
-                var element = document.body;
+                const element = document.body;
                 element.classList.toggle("dark-mode");
             }
 
             // COUNTDOWN
             // js
             // stackoverflow
-
+            const currentyear = new Date().getFullYear();
+            const currentdate = new Date().getDate();
+            const nextYear = currentyear + 1;
+            console.log(nextYear);
             timedown("January 1, 2022 00:00:00", 'cd');
             function timedown(ti, id) { // Set the date we're counting down to
-                var countDownDate = new Date(ti).getTime();
+                const countDownDate = new Date(ti).getTime();
 
                 // Update the count down every 1 second
-                var x = setInterval(function () { // Get todays date and time
-                    var now = new Date().getTime();
+                const x = setInterval(function () { // Get todays date and time
+                    const now = new Date().getTime();
 
                     // Find the distance between now an the count down date
-                    var distance = countDownDate - now;
+                    const distance = countDownDate - now;
 
                     // Time calculations for days, hours, minutes and seconds
-                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
                     // Output the result in an element with id="cd"
                     document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + seconds + " Detik ";
@@ -111,7 +119,14 @@
                     // If the count down is over, write some text
                     if (distance < 0) {
                         clearInterval(x);
+                        document.getElementById('subtitle').innerHTML = "Happy New Year! :D";
                         document.getElementById(id).innerHTML = "Happy New Year! :D";
+                         confetti({
+                            spread: 150,
+                            particleCount: 50,
+                        });
+                                    
+
                     }
                 }, 1000);
             }
