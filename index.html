@@ -6,7 +6,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandheldFriendly" content="true">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/particle-api-js/9.0.0/particle.min.js"></script>
-        <script src="https://unpkg.com/feather-icons"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="dist/style.css">
         <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -42,14 +41,12 @@
         </footer>
 
         <script>
-            // icons
-            
-            confetti({
-                 spread: 50,
-                 particleCount: 50,
-            });
-            feather.replace();
 
+            // confetti
+            confetti({
+                            spread: 250,
+                            particleCount: 30,
+                        });
             // particle
             particlesJS.load('particles-js', 'particles.json', function () {
                 console.log('particles.json loaded...');
@@ -92,9 +89,10 @@
             // COUNTDOWN
             // js
             // stackoverflow
-            const currentyear = new Date().getFullYear();
-            const currentdate = new Date().getDate();
-            const nextYear = currentyear + 1;
+            const audio = new Audio('./crab.mp3');
+            const currentYear = new Date().getFullYear();
+            const currentDate = new Date().getDate();
+            const nextYear = currentYear + 1;
             console.log(nextYear);
             timedown("January 1, 2022 00:00:00", 'cd');
             function timedown(ti, id) { // Set the date we're counting down to
@@ -103,28 +101,51 @@
                 // Update the count down every 1 second
                 const x = setInterval(function () { // Get todays date and time
                     const now = new Date().getTime();
-
                     // Find the distance between now an the count down date
                     const distance = countDownDate - now;
-
+                    
                     // Time calculations for days, hours, minutes and seconds
                     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+                    
                     // Output the result in an element with id="cd"
                     document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + seconds + " Detik ";
+                    //crabrave
 
-                    // If the count down is over, write some text
+                    // If the count down is over, write some text and do shit
                     if (distance < 0) {
                         clearInterval(x);
                         document.getElementById('subtitle').innerHTML = "Happy New Year! :D";
                         document.getElementById(id).innerHTML = "Happy New Year! :D";
-                         confetti({
-                            spread: 150,
-                            particleCount: 50,
+                        audio.play();
+                                   // do this for 30 seconds
+                        var duration = 30 * 1000;
+                        var end = Date.now() + duration;
+
+                        (function frame() {
+                        // launch a few confetti from the left edge
+                        confetti({
+                            particleCount: 4,
+                            angle: 60,
+                            spread: 60,
+                            origin: { x: 0 }
                         });
+                        // and launch a few from the right edge
+                        confetti({
+                            particleCount: 4,
+                            angle: 120,
+                            spread: 60,
+                            origin: { x: 1 }
+                        });
+
+                        // keep going until we are out of time
+                        if (Date.now() < end) {
+                            requestAnimationFrame(frame);
+                        }
+                        }());
+                        
                                     
 
                     }
