@@ -13,7 +13,22 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
          <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+        <style>
+            .darkmode--activated p, .darkmode--activated li {
+                color: #000;
+                }
+                body.darkmode--activated iframe, body.darkmode--activated .darkmode-ignore {
+                 mix-blend-mode: difference;
+                }
+                #iframe {
+                 isolation: isolate;
+                }
+                .darkmode-layer, .darkmode-toggle {
+                 z-index: 500;
+                }
 
+
+        </style>
     </head>
     <body>
 
@@ -31,16 +46,30 @@
             
             <div id="menu" class="menu">
                 <h2 class="cd" id="cd"></h2>
-                <p class="watermark">tahunbaru.netlify.app</p>
+                <p class="watermark" id="wm1"></p>
                 <br>
             </div>
-            <p id="horay"></p>
+            <div class="nocontent" style="margin-top: 10em;">&nbsp
+                <p style="margin-top:10em;">Card vs Humanity</p>
+            <a id="show-toggle1" class="show">
+                Show
+            </a>
+            </div>
+            
+            <div class="azala" id="azala" style="margin-bottom: 3em;">
+               
+                
+                <iframe id="ifrane" class="darkmode-ignore" src="https://picturecards.online/static/index.html" style="display:none;border:4px #000 solid;margin-top: 2em;isolation: isolate;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="20px" marginwidth="20px" height="600px" width="90%" allowfullscreen></iframe>
+            </div>
+            
         </body>
         <footer>
-
+            <p id="horay"></p>
+            <p class='watermark' id='wm'></p>
             <a href="http://instagram.com/freqtion" class='ig-footer'>@freqtion</a>
+            
         </footer>
-
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script>
 
             // confetti
@@ -61,7 +90,18 @@
                 $('body').hide().fadeIn(900).delay(200)
             });
 
+            //typewriter
+            var humanize = Math.round(Math.random() * (100 - 30)) - 100;
+            var options = {
+                strings: ["Welcome!", "Thanks for visiting!", '<span>tahunbaru.netlify.app</span>'],
+                typeSpeed: 20,
+                loop: false,
+                showCursor: false,
+                smartBackspace: true,
+                backSpeed: humanize,
+                };
 
+var typed = new Typed('#wm', options)
             // button h&show
             // jquery
 
@@ -78,6 +118,18 @@
                         $(this).text('Show');
                     }
                 });
+                $("#show-toggle1").click(function () {
+                    $("Iframe").animate({height: "toggle", opacity: "toggle"});
+                });
+
+                $("#show-toggle1").click(function () {
+                    if ($.trim($(this).text()) === 'Show') {
+                        $(this).text('Hide');
+                    } else {
+                        $(this).text('Show');
+                    }
+                });
+
 
 
             });
