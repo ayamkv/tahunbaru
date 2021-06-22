@@ -6,29 +6,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandheldFriendly" content="true">
         <link rel="icon" href="https://images.emojiterra.com/google/android-11/128px/1f389.png">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/particle-api-js/9.0.0/particle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="dist/style.css">
-        <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.29.2/dist/tsparticles.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./js/countdown.js"></script>
+        <script src='./js/darkmode.js'></script>
+
          <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-        <style>
-            .darkmode--activated p, .darkmode--activated li {
-                color: #000;
-                }
-                body.darkmode--activated iframe, body.darkmode--activated .darkmode-ignore {
-                 mix-blend-mode: difference;
-                }
-                #iframe {
-                 isolation: isolate;
-                }
-                .darkmode-layer, .darkmode-toggle {
-                 z-index: 500;
-                }
 
-
-        </style>
     </head>
     <body>
 
@@ -69,6 +56,8 @@
             <a href="http://instagram.com/freqtion" class='ig-footer'>@freqtion</a>
             
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+     
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script>
 
@@ -79,10 +68,10 @@
                         });
             // particle
             particlesJS.load('particles-js', 'particles.json', function () {
-                console.log('particles.json loaded...');
+                console.log('particles.json loaded... \nEverything is ready');
                 let el = document.querySelector(".particles-js-canvas-el");
 
-                el.setAttribute("width", "920", "height", "1080");
+
             });
 
 
@@ -91,8 +80,8 @@
             });
 
             //typewriter
-            var humanize = Math.round(Math.random() * (100 - 30)) - 100;
-            var options = {
+            const humanize = Math.round(Math.random() * (100 - 30)) - 100;
+            const options = {
                 strings: ["Welcome!", "Thanks for visiting!", '<span>tahunbaru.netlify.app</span>'],
                 typeSpeed: 20,
                 loop: false,
@@ -101,7 +90,7 @@
                 backSpeed: humanize,
                 };
 
-var typed = new Typed('#wm', options)
+            const typed = new Typed('#wm', options)
             // button h&show
             // jquery
 
@@ -133,90 +122,8 @@ var typed = new Typed('#wm', options)
 
 
             });
-            // dark mode
-            function myFunction() {
-                const element = document.body;
-                element.classList.toggle("dark-mode");
-            }
 
-            // COUNTDOWN
-            // js
-            // stackoverflow
-            const audio = new Audio('./crab.mp3');
-            const currentYear = new Date().getFullYear();
-            const currentDate = new Date().getDate();
-            const nextYear = currentYear + 1;
-            console.log(nextYear);
-            timedown("January 1, 2022 00:00:00", 'cd');
-            function timedown(ti, id) { // Set the date we're counting down to
-                const countDownDate = new Date(ti).getTime();
-
-                // Update the count down every 1 second
-                const x = setInterval(function () { // Get todays date and time
-                    const now = new Date().getTime();
-                    // Find the distance between now an the count down date
-                    const distance = countDownDate - now;
-                    
-                    // Time calculations for days, hours, minutes and seconds
-                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                    
-                    // Output the result in an element with id="cd"
-                    document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + seconds + " Detik ";
-                    //crabrave
-
-                    // If the count down is over, write some text and do shit
-                    if (distance < 0) {
-                        clearInterval(x);
-                        document.getElementById('subtitle').innerHTML = "Happy New Year! :D";
-                        document.getElementById(id).innerHTML = "Happy New Year! :D";
-                        audio.play();
-                                   // do this for 30 seconds
-                        var duration = 30 * 1000;
-                        var end = Date.now() + duration;
-
-                        (function frame() {
-                        // launch a few confetti from the left edge
-                        confetti({
-                            particleCount: 4,
-                            angle: 60,
-                            spread: 60,
-                            origin: { x: 0 }
-                        });
-                        // and launch a few from the right edge
-                        confetti({
-                            particleCount: 4,
-                            angle: 120,
-                            spread: 60,
-                            origin: { x: 1 }
-                        });
-
-                        // keep going until we are out of time
-                        if (Date.now() < end) {
-                            requestAnimationFrame(frame);
-                        }
-                        }());
-                        
-                                    
-
-                    }
-                }, 1000);
-            }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-        <script>
-            let options = {
-                saveInCookies: true, // default: true,
-                autoMatchOsTheme: true, // default: true
-                label: '🌗',
-            }
-            function addDarkmodeWidget() {
-                new Darkmode(options).showWidget();
-            }
-            window.addEventListener('load', addDarkmodeWidget);
-            console.log('darkmode loaded')
-        </script>
+
     </body>
 </html></script></body></html>
