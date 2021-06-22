@@ -144,6 +144,6 @@ a.ig-footer:hover {
    user-select: none;
 }
 #wm {
-   mix-blend-mode: exclusion;
+   mix-blend-mode: difference;
    
 }
