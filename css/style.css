@@ -65,9 +65,12 @@ footer {
 .year {
    font-size: 100px;
    line-height: 1px;
+   
 }
 .yea {
    line-height: 1em;
+   user-select: none;
+
 }
 .cd {
    font-size: 3em;
@@ -75,12 +78,7 @@ footer {
 }
 
 
-a{
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
+a {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
   }
@@ -128,10 +126,7 @@ a.ig-footer:hover {
    border: 1px solid black;
    transition: 140ms ease;
    }
-p.watermark {
-   background: white;
-   opacity: 25%;
-}
+
 
 .darkmode--activated p, .darkmode--activated li {
    color: #000;
@@ -145,4 +140,10 @@ p.watermark {
    .darkmode-layer, .darkmode-toggle {
     z-index: 1000;
    }
-
+#noselect {
+   user-select: none;
+}
+#wm {
+   mix-blend-mode: exclusion;
+   
+}
