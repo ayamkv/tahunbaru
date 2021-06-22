@@ -23,7 +23,7 @@
       },
       "onHover": {
         "enable": true,
-        "mode": "repulse",
+        "mode": "connect",
         "parallax": {
           "enable": true,
           "force": 10,
