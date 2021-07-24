@@ -133,12 +133,10 @@ a.ig-footer:hover {
 .darkmode--activated p, .darkmode--activated li {
    color: #000;
    }
-   body.darkmode--activated iframe, body.darkmode--activated .darkmode-ignore {
+   body.darkmode--activated, body.darkmode--activated .darkmode-ignore {
     mix-blend-mode: difference;
    }
-   #iframe {
-    isolation: isolate;
-   }
+
    .darkmode-layer, .darkmode-toggle {
     z-index: 1000;
    }
