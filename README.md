@@ -1,2 +1,2 @@
 # tahunbaru.netlify.app
-Yep. its a web.
+It's a simple static site, used js to countdown new year
