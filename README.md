@@ -1,4 +1,4 @@
-# [tahunbaru](tahunbaru.netlify.app)
+# [tahunbaru](https://tahunbaru.netlify.app)
 It's a simple static site, used js to countdown new year
 
 
