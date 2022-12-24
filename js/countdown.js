@@ -5,7 +5,9 @@
             const currentDate = new Date().getDate();
             const nextYear = currentYear + 1;
             console.log(nextYear + ' is coming!\nRunning all scripts..');
-            timedown("January 1, 2023 00:00:00", 'cd');
+            Date(`January 1, ${nextYear} 00:00:00`).getTime();
+            timedown(countDownDate, 'cd');
+          //  timedown("January 1, 2023 00:00:00", 'cd');
             function timedown(ti, id) { // Set the date we're counting down to
                 const countDownDate = new Date(ti).getTime();
 
