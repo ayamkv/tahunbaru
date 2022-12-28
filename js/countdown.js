@@ -1,12 +1,81 @@
  // COUNTDOWN
             // thanks stackoverflow
+            async function updateJsonFile() {
+                try {
+                  // Read the JSON file
+                  const file = await fetch('../particles.json');
+              
+                  if (file.status !== 200) {
+                    throw new Error(`${file.status}: ${file.statusText}`);
+                  }
+              
+                  // Read the file as a Blob object
+                  const blob = await file.blob();
+              
+                  // Check if the file has been updated
+                  const fileReader = new FileReader();
+                  fileReader.onload = function () {
+                    const fileData = fileReader.result;
+              
+                    // Log the file contents before the update
+                    console.log('before update:', fileData);
+              
+                    // Parse the JSON data
+                    const data = JSON.parse(fileData);
+              
+                    // Update the value
+                    data.particles.number.value = 150;
+              
+                    // Write the updated JSON data back to the file
+                    localStorage.setItem('file', JSON.stringify(data));
+              
+                    // Log the file contents after the update
+                    console.log('after update:', localStorage.getItem('file'));
+                  };
+              
+                  fileReader.readAsText(blob);
+                } catch (error) {
+                  console.error(error);
+                }
+              }
+              
+            //   updateJsonFile();
+                          
+
+            // async function checkFile() {
+            //     // Read the file as a Blob object
+            //     const file = await fetch('../test.json');
+            //     const blob = await file.blob();
+              
+            //     // Check if the file has been updated
+            //     const fileReader = new FileReader();
+            //     fileReader.onload = function () {
+            //       const fileData = fileReader.result;
+              
+            //       if (fileData) {
+            //         console.log('File has been updated');
+            //       } else {
+            //         console.log('File has not been updated');
+            //       }
+            //     };
+              
+            //     fileReader.readAsText(blob);
+            //   }
+              
+            // checkFile();
+              
+
+                        
             const audio = new Audio('./crab.mp3');
             const currentYear = new Date().getFullYear();
             const currentDate = new Date().getDate();
             const nextYear = currentYear + 1;
             console.log(nextYear + ' is coming!\nRunning all scripts..');
-            Date(`January 1, ${nextYear} 00:00:00`).getTime();
-            timedown(countDownDate, 'cd');
+            const dateString = `January 1, ${nextYear} 00:00:00`;
+            const date = new Date(Date.parse(dateString));
+            const timestamp = date.getTime();
+
+            timedown(timestamp, 'cd');
           //  timedown("January 1, 2023 00:00:00", 'cd');
             function timedown(ti, id) { // Set the date we're counting down to
                 const countDownDate = new Date(ti).getTime();
@@ -24,12 +93,13 @@
                     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                     
                     // Output the result in an element with id="cd"
-                    document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + seconds + " Detik ";
+                    document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + (seconds + " Detik ");
                     //crabrave
 
                     // If the count down is over, write some text and do shit
                     if (distance < 0) {
                         clearInterval(x);
+
                         document.getElementById('subtitle').innerHTML = "Happy New Year! :D";
                         document.getElementById(id).innerHTML = "Happy New Year! :D";
                         audio.play();

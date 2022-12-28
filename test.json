@@ -1,0 +1,10 @@
+{
+    "particles": {
+      "number": {
+        "density": {
+          "enable": true
+        },
+        "value": 70
+      }
+    }
+}
