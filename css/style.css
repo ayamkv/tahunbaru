@@ -145,8 +145,8 @@ a.ig-footer:hover {
 }
 #wm {
    font-size: 14px;
-   mix-blend-mode: difference;
-   
+/*   mix-blend-mode: difference;
+   */
 }
 .darkmode-toggle {
    -webkit-touch-callout: none;
