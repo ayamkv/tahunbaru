@@ -95,6 +95,12 @@
                     // Output the result in an element with id="cd"
                     document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + (seconds + " Detik ");
                     //crabrave
+                     
+                    if (distance < 16000) {  // 10000 is the number of milliseconds in 10 seconds
+
+                         document.getElementById(id).style.fontSize = '5em';
+
+                      };
 
                     // If the count down is over, write some text and do shit
                     if (distance < 0) {
