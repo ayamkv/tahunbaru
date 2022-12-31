@@ -75,8 +75,8 @@
             const date = new Date(Date.parse(dateString));
             const timestamp = date.getTime();
 
-            timedown(timestamp, 'cd');
-          //  timedown("January 1, 2023 00:00:00", 'cd');
+             timedown(timestamp, 'cd');
+           // timedown("December 31, 2022 19:45:10", 'cd');
             function timedown(ti, id) { // Set the date we're counting down to
                 const countDownDate = new Date(ti).getTime();
 
@@ -96,21 +96,31 @@
                     document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + (seconds + " Detik ");
                     //crabrave
                      
-                    if (distance < 16000) {  // 10000 is the number of milliseconds in 10 seconds
-
-                         document.getElementById(id).style.fontSize = '5em';
+                    if (distance < 60000) {  // 10000 is the number of milliseconds in 10 seconds
+                      document.getElementById(id).innerHTML = (days != 0 ? days + " Hari " : '') + (hours != 0 ? hours + " Jam " : '') + (minutes != 0 ? minutes + " Menit " : '') + (seconds + "");
+                         document.getElementById(id).style.fontSize = '7em';
+                         
 
                       };
 
                     // If the count down is over, write some text and do shit
                     if (distance < 0) {
                         clearInterval(x);
+                        particlesJS.load('particles-js', 'particles.json', function () {
+                          console.log('particles.json loaded... \nEverything is ready');
+                          let el = document.querySelector(".particles-js-canvas-el");
+          
+          
+                       });
+          
+          
+                        document.getElementById(id).style.fontSize = '4em';
 
-                        document.getElementById('subtitle').innerHTML = "Happy New Year! :D";
-                        document.getElementById(id).innerHTML = "Happy New Year! :D";
+                        document.getElementById('subtitle').innerHTML = "🎉 Happy New Year! :D";
+                        document.getElementById(id).innerHTML = "🎉 Happy New Year! :D";
                         audio.play();
-                                   // do this for 30 seconds
-                        var cDuration = 30 * 1000;
+                                   // do this for 45 seconds
+                        var cDuration = 45 * 1000;
                         var cEnd = Date.now() + cDuration;
 
                         (function cFrame() {
