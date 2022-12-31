@@ -75,8 +75,8 @@
             const date = new Date(Date.parse(dateString));
             const timestamp = date.getTime();
 
-             timedown(timestamp, 'cd');
-           // timedown("December 31, 2022 19:45:10", 'cd');
+        //     timedown(timestamp, 'cd');
+            timedown("January 1, 2022 00:00:0", 'cd');
             function timedown(ti, id) { // Set the date we're counting down to
                 const countDownDate = new Date(ti).getTime();
 
