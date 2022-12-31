@@ -13,31 +13,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="./js/countdown.js"></script>
         <script src='./js/darkmode.js'></script>
-
-         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     </head>
     <body>
-
         <div id="particles-js"></div>
         <div class="content">
             <div class="header" id="header">
-                <h1 class="year">2023</h1>
+                <h1 class="year" id="yearTitle"> </h1>
                 <h1 class="yea" id="subtitle">New Year Countdown</h1>
             </div>
-            <a id="show-toggle" class="show">Show</a>
+            <a id="show-toggle" class="show" data-clicked="false">Show</a>
             <br><br>
 
-            
             <div id="menu" class="menu">
                 <h2 class="cd" id="cd">
                 </h2>
+                <p id="subtitleMaybe" style="font-size: 1.5em;"></p>
                 <p class="watermark" id="wm1"></p>
                 <br>
             </div>
-       
-       
-        </body>
         <footer>
             <p id="horay"></p>
             <p class='watermark' id='wm'></p>
@@ -45,9 +39,10 @@
             
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-     
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script>
+            document.getElementById("yearTitle").innerHTML = nextYear;
+
 
             // confetti
             confetti({
@@ -84,6 +79,7 @@
 
             $(document).ready(function () {
                 $("#show-toggle").click(function () {
+                    $(this).attr('data-clicked', 'true');
                     $("#menu").fadeToggle();
                     $("#header").animate({height: "toggle", opacity: "toggle"});
                 });
@@ -102,4 +98,4 @@
         </script>
 
     </body>
-</html></script></body></html>
+</html>
