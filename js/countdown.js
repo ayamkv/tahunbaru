@@ -1,5 +1,4 @@
-// COUNTDOWN
-// thanks stackoverflow
+// particles thing
 async function updateJsonFile() {
   try {
     // Read the JSON file
@@ -72,6 +71,9 @@ const dateString = `January 1, ${nextYear} 00:00:00`;
 const date = new Date(Date.parse(dateString));
 const timestamp = date.getTime();
 
+// COUNTDOWN
+// thanks stackoverflow
+
 timedown(timestamp, 'cd');                                // auto updates
 // timedown("January 1, 2023 00:00:0", "cd");     //for debug purposes
 function timedown(ti, id) {
@@ -99,7 +101,7 @@ function timedown(ti, id) {
       (hours != 0 ? hours + " Jam " : "") +
       (minutes != 0 ? minutes + " Menit " : "") +
       (seconds + " Detik ");
-    //crabrave
+    document.getElementById("subtitleMaybe").innerHTML = "";
 
     if (distance < 60000) {
       // 10000 is the number of milliseconds in 10 seconds
@@ -128,7 +130,7 @@ function timedown(ti, id) {
     // If the count down is over, write some text and do shit
     else {
       clearInterval(x);
-      
+      document.getElementById("subtitleMaybe").innerHTML = "";
       particlesJS.load("particles-js", "particles.json", function () {
         console.log("particles.json loaded... \nEverything is ready");
         let el = document.querySelector(".particles-js-canvas-el");
@@ -138,10 +140,11 @@ function timedown(ti, id) {
 
       document.getElementById("subtitle").innerHTML = "🎉 Happy New Year! :D";
       document.getElementById(id).innerHTML = "🎉 Happy New Year! :D";
+      // crab rave 🦀 🎊
       audio.play();
       // do this for 45 seconds
-      var cDuration = 45 * 1000;
-      var cEnd = Date.now() + cDuration;
+      const cDuration = 45 * 1000;
+      const cEnd = Date.now() + cDuration;
 
       (function cFrame() {
         // launch a few confetti from the left edge
