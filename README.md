@@ -1,4 +1,5 @@
-# [tahunbaru](https://tahunbaru.netlify.app)
+# [tahunbaru](https://tahunbaru.netlify.app)  [![Netlify Status](https://api.netlify.com/api/v1/badges/fc11da78-8019-474a-b0fd-b03473542d71/deploy-status)](https://app.netlify.com/sites/tahunbaru/deploys)
+
 It's a simple static site, used js to countdown new year
 
 
